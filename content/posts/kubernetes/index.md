@@ -6,3 +6,4 @@ tags:
   - setup
 draft: false
 ---
+Kubernets is a container orchestration tool.

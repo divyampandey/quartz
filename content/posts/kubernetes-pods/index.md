@@ -9,6 +9,7 @@ draft: false
 Kubernetes Pods are very similar to the docker container. 
 The main difference is Pod allows to run 1 or more containers within it - e.g sidecar pattern.
 
-### Table comparison: Docker vs Kubernetes
+Table comparison: Docker vs Kubernetes:
+
 
 ![](../../assets/pod-comparison.png)

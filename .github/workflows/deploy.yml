@@ -28,10 +28,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Clean previous build
+        run: rm -rf .quartz-cache public
       - name: Install deps
         run: npm ci
       - name: Build site
-        run: npx quartz build          # outputs to public/
+        run: npx quartz build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

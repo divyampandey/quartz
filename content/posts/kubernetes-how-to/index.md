@@ -65,7 +65,7 @@ preferences: {}
 ## Add a remote cluster (without breaking your local ones)
 
  **My remote** `kubeconfig` **file:**
-![Remote kubeconfig](../../assets/remote-kubeconfig.png)
+![Remote kubeconfig](https://divyampandey.github.io/quartz/assets/remote-kubeconfig.png)
 
 
 If your cloud provider gave you a separate kubeconfig file (say `~/Downloads/do.kubeconfig`), you don’t have to overwrite `~/.kube/config`. Merge them and keep everything:
@@ -82,7 +82,7 @@ mv /tmp/merged.kubeconfig $HOME/.kube/config
 
 **My merged** `config` **file**:
 
-![Merged config](../../assets/merged-kubeconfig.png)
+![Merged config](https://divyampandey.github.io/quartz/assets/merged-kubeconfig.png)
 
 
 

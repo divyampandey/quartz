@@ -11,4 +11,4 @@ The main difference is Pod allows to run 1 or more containers within it - e.g si
 
 ### Table comparison: Docker vs Kubernetes
 
-![](../../assets/pod-comparison-20251019190656.png)
+![](../../assets/pod-comparison.png)

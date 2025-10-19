@@ -1,5 +1,5 @@
 ---
-title: Kubernetes - Pods
+title: Kubernetes-Pods
 description: Everything about kubernetes pod
 tags:
   - notes
@@ -10,4 +10,5 @@ Kubernetes Pods are very similar to the docker container.
 The main difference is Pod allows to run 1 or more containers within it - e.g sidecar pattern.
 
 ### Table comparison: Docker vs Kubernetes
-![](../../assets/Pasted%20image%2020251019190656.png)
+
+![](../../assets/pod-comparison-20251019190656.png)

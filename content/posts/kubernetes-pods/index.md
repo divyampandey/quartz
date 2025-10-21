@@ -33,3 +33,16 @@ Inside the pod container share the same network and resources and can communicat
 
 
 ![pods-in-node](https://divyampandey.github.io/quartz/assets/pods-in-node.png)
+
+
+
+Kubernetes has other types of resources as well other than pod.
+* `Pod`: Smallest deployable unit in kubernetes representing a single instance of running process.
+* `Deployments`: Manages multiple replicas of `Pod` and supports rolling updates.
+* `Service`: Exposes `Pods` to the network and provides stable load balancing.
+* `ConfigMap`: Stores non-sensitive configuration data for the applications.
+* `Secret`: Stores sensitive data like password and key security 
+* `PersistantVolume`: Represent storage resource for persistent data in the cluster.
+* `PersistantVolumeClaim`: Request a specific amount of storage from a `PersistantVolume`
+* `Ingress`: Manages external HTTP and HTTPs traffic to services in the cluster.
+* `Namespace`: Provides a way to group and isolate resources in the k8 cluster.

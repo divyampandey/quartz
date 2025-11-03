@@ -59,6 +59,7 @@ you should see something like
 pod/nginx-pod created (dry run)
 ```
 
+
 Applying the manifest and then checking the logs shows it produced the similar output to docker container.
 ```
 kubectl apply -f test.yaml
@@ -68,3 +69,43 @@ pod/nginx-pod created
 kubectl logs nginx-pod             
 hello world!
 ```
+
+
+To create the container with command and args, you can also do it directly using the kubectl command.
+`kubectl run nginx --image=nginx --command -- /bin/echo hello world!`
+
+ it would produce the similar result, here's the general syntax.
+`--command <command> <args>`
+
+
+
+### In k8 manifest file , you can also write the `command` in the list format
+example:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      command:
+      - 'bin/echo'
+      - 'hello'
+      - 'world!'
+```
+
+
+## Check the K8 CLI documentation
+To see the api-resource documentation on CLI we can use the explain command.
+
+* `kubectl explain <api-resource>`
+
+examples:
+1. `kubectl explain pod`
+2. `kubectl explain pod.spec`
+3. `kubectl explain pod.spec.containers`
+
+
+

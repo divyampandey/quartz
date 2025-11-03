@@ -109,3 +109,15 @@ examples:
 
 
 
+
+### Docker EXPOSE intruction
+
+The `Expose` instruction informs docker that the container listens on the specified network port at runtime.
+
+`Expose` doesn't actually publish the port
+
+It acts more as a documentation between the person who wrote the docker image and the person running the container, about which ports are intended to be published.
+
+
+
+

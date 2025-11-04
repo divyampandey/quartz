@@ -169,9 +169,6 @@ spec:
 
 
 
-
-
-
 ### Docker EXPOSE intruction
 
 The `Expose` instruction informs docker that the `container` listens on the specified network `port` at runtime.

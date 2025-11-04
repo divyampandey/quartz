@@ -218,3 +218,27 @@ Try 3: "Echoes of Tomorrow: Shadows in the Stars"
 Try 4: "Eclipse Reign: Dawn of Ethereal Realms"
 ```
 
+
+
+##### Max Tokens Limits Response Length:
+- Set it to control costs and response size
+- Response may be cut off mid-sentence if too low
+
+If you setup a very small value for the `max_tokens` then the output response might be cutoff.
+**example:**
+```
+llm = ChatOpenAI(model="gpt-4o", temperature=1.1)
+
+for i in range(4):
+response = llm.invoke("Give me the title of a sci-fi movie",max_tokens=5)
+
+print(f"Try {i+1}: {response.content}")
+```
+
+**response:**
+```
+Try 1: "Inception"
+Try 2: "Inception" is a
+Try 3: "The Matrix" is a
+Try 4: "Inception" is a
+```

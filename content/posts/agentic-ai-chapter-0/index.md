@@ -68,3 +68,81 @@ pip install langchain-openai
 # Install other useful packages
 pip install python-dotenv
 ```
+
+Ensure you have the env variable `OPENAI_API_KEY` setup in `.env` file.
+
+#### LLMs can be invoked with simple strings or structured messages
+
+###### Example one:
+```
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+import os
+
+# Load environment variables
+load_dotenv()
+
+
+# Simple Text String
+
+# Initialize the model
+llm = ChatOpenAI(
+model="gpt-4o",
+temperature=0.7
+
+)
+
+# Simple prompt as a string
+prompt = "Explain what a Large Language Model is in one sentence."
+
+  
+# Invoke the model
+response = llm.invoke(prompt)
+
+  
+print(f"Prompt: {prompt}")
+print(f"\nResponse: {response.content}")
+print(f"\nResponse type: {type(response)}")
+print(f"Response attributes: {dir(response)}")
+```
+
+The response type is:
+`Response type: <class 'langchain_core.messages.ai.AIMessage'>`
+
+#### SystemMessage sets the AI's behavior/context
+#### HumanMessage represents user input
+
+```
+import os
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+
+load_dotenv()
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+
+messages = [
+SystemMessage(content="Your are a helpful math tutor and give logical explanation in 1 line."),
+HumanMessage(content="what is 2+2?"),
+AIMessage(content="2+2 equals 4."),
+HumanMessage(content="what is 2*2?"),
+AIMessage(content="2*2 equals 4."),
+HumanMessage(content="so they are the same mathematically?"),
+]
+ 
+response = llm.invoke(messages)
+print(response.content)
+print(type(response))
+```
+
+**Result:**
+```
+Yes, both 2+2 and 2*2 result in the same value, 4, but they represent different operations.
+<class 'langchain_core.messages.ai.AIMessage'>
+```
+
+
+#### The response object contains content + metadata
+1. `response.content`
+2. `response.response_metadata`

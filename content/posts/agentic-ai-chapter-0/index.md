@@ -188,3 +188,23 @@ Try 4: "Inception" is a popular sci-fi movie.
 
 
 **example with temperature=0.7 (balanced):**
+```
+import os
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+
+load_dotenv()
+
+llm = ChatOpenAI(model="gpt-4o", temperature=0.7)
+for i in range(4):
+	response = llm.invoke("Give me the title of a sci-fi movie")
+	print(f"Try {i+1}: {response.content}")
+```
+
+**Response:**
+```
+Try 1: "Inception"
+Try 2: "Blade Runner 2049"
+Try 3: "Inception"
+Try 4: "Blade Runner 2049"
+```

@@ -5,7 +5,7 @@ tags:
   - notes
 draft: false
 ---
-### What is an LLM?
+## What is an LLM?
  Large Language Model - which is trained on massive amounts of data. It could understand and generate text like human-like text. Can follow task like translation, summarization, code-generation etc.
 
 ##### Key things to remember
@@ -34,7 +34,7 @@ draft: false
 | Meta      | Llama 3.1, 3.2                   | Open source, can self-host         |
 |           |                                  |                                    |
 
-### Setting Up Your Environment
+## Setting Up Your Environment
 
 ##### Step 1: Install Python (if not already)
 You need Python 3.9 or higher. Check your version:
@@ -71,7 +71,8 @@ pip install python-dotenv
 
 Ensure you have the env variable `OPENAI_API_KEY` setup in `.env` file.
 
-#### LLMs can be invoked with simple strings or structured messages
+## Invocation
+##### LLMs can be invoked with simple strings or structured messages
 
 ###### Example one:
 ```
@@ -109,8 +110,8 @@ print(f"Response attributes: {dir(response)}")
 The response type is:
 `Response type: <class 'langchain_core.messages.ai.AIMessage'>`
 
-#### SystemMessage sets the AI's behavior/context
-#### HumanMessage represents user input
+##### SystemMessage sets the AI's behavior/context
+##### HumanMessage represents user input
 
 ```
 import os
@@ -142,7 +143,7 @@ Yes, both 2+2 and 2*2 result in the same value, 4, but they represent different 
 <class 'langchain_core.messages.ai.AIMessage'>
 ```
 
-#### The response object contains content + metadata
+##### The response object contains content + metadata
 1. `response.content`
 2. `response.response_metadata`
 
@@ -158,6 +159,7 @@ response.response_metadata.get('token_usage')
 ```
 
 
+## Parameters
 ##### Temperature Controls Creativity:
 - `0.0`: Deterministic, same output every time
 - `0.7`: Balanced, good for most use cases
@@ -242,3 +244,4 @@ Try 2: "Inception" is a
 Try 3: "The Matrix" is a
 Try 4: "Inception" is a
 ```
+

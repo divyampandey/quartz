@@ -163,4 +163,28 @@ response.response_metadata.get('token_usage')
 - `0.7`: Balanced, good for most use cases
 - `1.5+`: Very creative, unpredictable
 
-**example:**
+**example with temperature=0:**
+```
+import os
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+
+load_dotenv()
+
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+for i in range(4):
+	response = llm.invoke("Give me the title of a sci-fi movie")
+	print(f"Try {i+1}: {response.content}")
+
+```
+
+**Response:**
+```
+Try 1: "Inception" is a popular sci-fi movie that explores the concept of shared dreams and subconscious manipulation.
+Try 2: "Inception" is a popular sci-fi movie that explores the concept of shared dreams and subconscious manipulation.
+Try 3: "Inception" is a popular sci-fi movie that explores the concept of shared dreams and subconscious manipulation.
+Try 4: "Inception" is a popular sci-fi movie.
+```
+
+
+**example with temperature=0.7 (balanced):**

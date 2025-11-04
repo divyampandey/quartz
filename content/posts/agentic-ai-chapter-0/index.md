@@ -142,7 +142,17 @@ Yes, both 2+2 and 2*2 result in the same value, 4, but they represent different 
 <class 'langchain_core.messages.ai.AIMessage'>
 ```
 
-
 #### The response object contains content + metadata
 1. `response.content`
 2. `response.response_metadata`
+
+**example:**
+```
+response.response_metadata.get('model_name')
+'gpt-4o-2024-08-06'
+
+response.response_metadata.get('token_usage')
+
+{'completion_tokens': 34, 'prompt_tokens': 17, 'total_tokens': 51, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}
+
+```

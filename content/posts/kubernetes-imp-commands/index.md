@@ -7,15 +7,85 @@ draft: false
 ---
 # `kubectl` important commands
 
-### Exec command 
+### Cluster information
+
+
+To get all the cluster information you can use the `get-contexts` command. The `*` tells which context is currently being used.
+
+1. `kubectl config get-contexts`
+
+It is used to see all the cluster and context that the kubectl can see using the kube config file.
+
+```
+kubectl config get-contexts                                                                                                                                                                                                          
+
+CURRENT   NAME                 CLUSTER              AUTHINFO                   NAMESPACE
+
+*         do-blr1-k8-dp-labs   do-blr1-k8-dp-labs   do-blr1-k8-dp-labs-admin   
+
+          docker-desktop       docker-desktop       docker-desktop             
+
+          kind-argo-demo       kind-argo-demo       kind-argo-demo             argocd
+
+          kind-kind-cluster    kind-kind-cluster    kind-kind-cluster          
+
+          minikube             minikube             minikube                   default
+
+          rancher-desktop      rancher-desktop      rancher-desktop
+          
+```
+
+2. `kubectl cluster-info`
+
+This command helps you see the cluster information, like where is the control plane running, coreDNS.
+```
+kubectl cluster-info
+
+Kubernetes control plane is running at https://52359178-3691-413a-a2da-e4fa937b5ded.k8s.ondigitalocean.com
+
+CoreDNS is running at https://52359178-3691-413a-a2da-e4fa937b5ded.k8s.ondigitalocean.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+```
+
+
+3. `kubectl config use-context <context-name>`
+
+To switch to a different context , you can use use-context command.
+
+#### switch to a different context using `use-context`
+```
+kubectl config use-context docker-desktop                                                                                                                        Switched to context "docker-desktop"
+
+```
+
+4.  `kubectl exec -it <pod_name> -- bash`
+To open the bash shell inside the pod you can use the exec command with the interactive option enabled.
+
+#### Exec command 
 
 ###### execute commands in bash of the container
 ```kubectl exec -it <pod_name> -- bash```
 
 **For multi-container pod:**
+If you want to exec commands in bash of specific container, then you can specify the specific container using the `-c` option and passing the `container_name`.
 ```kubectl exec -it <pod_name> -c <container_name> -- bash```
 
 
+5. `kubectl explain <api-resource>`
+
+#### Check the K8 CLI documentation
+To see the api-resource documentation on CLI we can use the explain command. 
+`kubectl explain <api-resource>`
+
+examples:
+1. `kubectl explain pod`
+2. `kubectl explain pod.spec`
+3. `kubectl explain pod.spec.containers`
+
+
+
+
+
+# Knowledge Nuggets
 ### ENTRYPOINT, CMD  in docker vs command , args in k8
 In docker, if you want to run something on the container startup then you have the option to define it in the Dockerfile which is used to generate the docker image.
 
@@ -97,22 +167,14 @@ spec:
 ```
 
 
-## Check the K8 CLI documentation
-To see the api-resource documentation on CLI we can use the explain command.
 
-* `kubectl explain <api-resource>`
-
-examples:
-1. `kubectl explain pod`
-2. `kubectl explain pod.spec`
-3. `kubectl explain pod.spec.containers`
 
 
 
 
 ### Docker EXPOSE intruction
 
-The `Expose` instruction informs docker that the container listens on the specified network port at runtime.
+The `Expose` instruction informs docker that the `container` listens on the specified network `port` at runtime.
 
 `Expose` doesn't actually publish the port
 

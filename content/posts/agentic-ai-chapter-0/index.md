@@ -156,3 +156,11 @@ response.response_metadata.get('token_usage')
 {'completion_tokens': 34, 'prompt_tokens': 17, 'total_tokens': 51, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}
 
 ```
+
+
+##### Temperature Controls Creativity:
+- `0.0`: Deterministic, same output every time
+- `0.7`: Balanced, good for most use cases
+- `1.5+`: Very creative, unpredictable
+
+**example:**

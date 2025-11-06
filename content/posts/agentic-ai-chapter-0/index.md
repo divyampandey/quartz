@@ -245,3 +245,42 @@ Try 3: "The Matrix" is a
 Try 4: "Inception" is a
 ```
 
+
+
+
+
+##### Using chain and prompts to write your application code
+
+you can use prompts and chain to modularise the llm calling part. For e.g Langchain library provides `ChatPromptTemplate` and `PromptTemplate` for creating prompts.
+
+A simple example:
+```
+from langchain_core import ChatPromptTemplate, PromptTemplate
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+
+
+load_dotenv()
+
+INFO = """
+Mango is the king of the fruits. It has more than 10 varities and it is very popular in different parts of the world.
+
+"""
+def main():
+	prompt_template = """
+	Given the {information} about topic. Give me following
+	1. short summary of the topic
+	2. Fun facts about the topic.
+
+	"""
+	
+	prompt = ChatPromptTemplate.from_template(prompt_template) 
+	
+	llm = ChatOpenAI(model="gpt-4o", temperature=0.7)
+	
+	chain = prompt | llm 
+	
+	response = chain.invoke({"information": INFO})
+	
+	print(response.content)
+```

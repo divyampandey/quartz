@@ -253,7 +253,7 @@ Try 4: "Inception" is a
 
 you can use prompts and chain to modularise the llm calling part. For e.g Langchain library provides `ChatPromptTemplate` and `PromptTemplate` for creating prompts.
 
-A simple example:
+**A simple example:**
 ```
 from langchain_core import ChatPromptTemplate, PromptTemplate
 from dotenv import load_dotenv

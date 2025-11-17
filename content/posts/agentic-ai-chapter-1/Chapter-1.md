@@ -93,18 +93,13 @@ This iterative loop is the **core pattern** behind many agentic systems.
   - A standard way to **define tools** and pass them to the agent.
   - Support for **complex workflows** and **state** (for long-running tasks).
 
-In this chapter:
 
-- We will use LangChain’s APIs to:
+Now, let's see how to:
   - Define **tools**.
   - Create a **ReAct-style agent**.
   - See how the agent uses tools to solve tasks.
 
-In later chapters:
 
-- We’ll dig deeper into:
-  - **How ReAct agents are implemented under the hood**.
-  - How to customize their behavior for real applications.
 
 
 

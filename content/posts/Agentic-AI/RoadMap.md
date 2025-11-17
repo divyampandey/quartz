@@ -1,10 +1,5 @@
----
-title: agentic-ai-workplan
-description: agentic-ai-workplan
-tags:
-  - notes
-draft: false
----
+
+
 # LangChain & LangGraph Learning Workplan
 
 ## Phase 1: Foundations (Week 1-2)

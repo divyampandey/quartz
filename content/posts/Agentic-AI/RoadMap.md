@@ -366,8 +366,6 @@ Final Checkpoint: Comprehensive quiz & capstone project
 
 ---
 
-## Bonus Topics (As Needed)
-
 ### Topic 23: Agentic RAG with LangGraph
 
 - Building advanced RAG with graphs

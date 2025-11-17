@@ -38,13 +38,13 @@ draft: false
 
 ##### Step 1: Install Python (if not already)
 You need Python 3.9 or higher. Check your version:
-```
+```bash
 python --version
 Python 3.10.16
 ```
 
 ##### Step 2: Create a Virtual Environment
-```
+```bash
 python -m venv langchain_env
 
 # On Mac/Linux:
@@ -58,7 +58,7 @@ langchain_env\Scripts\activate
 
 
 ##### Step 3: Install LangChain
-```
+```bash
 # Install core LangChain
 pip install langchain
 
@@ -75,7 +75,7 @@ Ensure you have the env variable `OPENAI_API_KEY` setup in `.env` file.
 ##### LLMs can be invoked with simple strings or structured messages
 
 ###### Example one:
-```
+```python
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 import os
@@ -113,7 +113,7 @@ The response type is:
 ##### SystemMessage sets the AI's behavior/context
 ##### HumanMessage represents user input
 
-```
+```python
 import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
@@ -148,7 +148,7 @@ Yes, both 2+2 and 2*2 result in the same value, 4, but they represent different 
 2. `response.response_metadata`
 
 **example:**
-```
+```python
 response.response_metadata.get('model_name')
 'gpt-4o-2024-08-06'
 
@@ -166,7 +166,7 @@ response.response_metadata.get('token_usage')
 - `1.5+`: Very creative, unpredictable
 
 **example with temperature=0:**
-```
+```python
 import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
@@ -181,7 +181,7 @@ for i in range(4):
 ```
 
 **Response:**
-```
+```text
 Try 1: "Inception" is a popular sci-fi movie that explores the concept of shared dreams and subconscious manipulation.
 Try 2: "Inception" is a popular sci-fi movie that explores the concept of shared dreams and subconscious manipulation.
 Try 3: "Inception" is a popular sci-fi movie that explores the concept of shared dreams and subconscious manipulation.
@@ -190,7 +190,7 @@ Try 4: "Inception" is a popular sci-fi movie.
 
 
 **example with temperature=0.7 (balanced):**
-```
+```python
 import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
@@ -228,7 +228,7 @@ Try 4: "Eclipse Reign: Dawn of Ethereal Realms"
 
 If you setup a very small value for the `max_tokens` then the output response might be cutoff.
 **example:**
-```
+```python
 llm = ChatOpenAI(model="gpt-4o", temperature=1.1)
 
 for i in range(4):

@@ -71,6 +71,7 @@ pip install python-dotenv
 
 Ensure you have the env variable `OPENAI_API_KEY` setup in `.env` file.
 
+---
 ## Invocation
 ##### LLMs can be invoked with simple strings or structured messages
 
@@ -158,7 +159,7 @@ response.response_metadata.get('token_usage')
 
 ```
 
-
+---
 ## Parameters
 ##### Temperature Controls Creativity:
 - `0.0`: Deterministic, same output every time
@@ -221,7 +222,7 @@ Try 4: "Eclipse Reign: Dawn of Ethereal Realms"
 ```
 
 
-
+---
 ##### Max Tokens Limits Response Length:
 - Set it to control costs and response size
 - Response may be cut off mid-sentence if too low
@@ -247,7 +248,7 @@ Try 4: "Inception" is a
 
 
 
-
+---
 
 ##### Using chain and prompts to write your application code
 

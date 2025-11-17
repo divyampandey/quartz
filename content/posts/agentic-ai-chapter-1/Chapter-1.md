@@ -93,7 +93,6 @@ This iterative loop is the **core pattern** behind many agentic systems.
   - A standard way to **define tools** and pass them to the agent.
   - Support for **complex workflows** and **state** (for long-running tasks).
 
-
 In this chapter:
 
 - We will use LangChain’s APIs to:

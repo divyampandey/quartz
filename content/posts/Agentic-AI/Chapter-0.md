@@ -1,6 +1,6 @@
 ---
-title: agentic-ai-chapter-0
-description: agentic-ai-chapter-0
+title: Chapter-0
+description: Chapter-0
 tags:
   - notes
 draft: false

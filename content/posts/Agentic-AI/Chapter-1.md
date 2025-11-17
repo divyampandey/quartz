@@ -136,3 +136,30 @@ if __name__ == "__main__":
 	main()
 ```
 
+---
+
+## Search Agents and Web Tools
+
+A **search agent** is just an agent that has a **web search tool** attached.
+
+### What a Search Agent Does
+
+Example query:
+
+> “Search for three job postings for an AI engineer in the Bay Area on LinkedIn and list their details.”
+
+Typical loop:
+
+1. **Decide** → LLM sees the query needs external info.
+2. **Search** → calls the web search tool (e.g. Bing, Google, custom API).
+3. **Read & Summarise** → LLM digests the results.
+4. **Answer** → returns a summary + **links to each source**.
+
+### Grounding with Sources
+
+- Each answer includes **source URLs** (e.g. LinkedIn job pages).
+- This is important because:
+  - LLMs can **hallucinate**.
+  - Users can **open the links**, cross-check, and decide if they trust the source.
+
+> Grounded answer = “Here’s my summary, and here are the pages I used.”

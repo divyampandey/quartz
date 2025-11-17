@@ -229,7 +229,7 @@ agent = create_agent(llm, tools)
 
 
 ---
----
+
 # Structured Output with Pydantic
 
 LLMs normally return **plain text**.  

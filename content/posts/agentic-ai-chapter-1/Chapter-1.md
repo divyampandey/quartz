@@ -101,5 +101,38 @@ Now, let's see how to:
 
 
 
+```
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv # Ensure you have the .env with OPENAI_API_KEY 
+from langchain.agents import create_agent
+from langchain.tools import tool
 
+load_dotenv()
+
+@tool
+def search(query: str) -> str:
+	"""Tool that searches the web for information
+	Args:
+	query: The query to search the web for
+	Returns:
+	The information for the query
+	"""
+	print(f"Searching the web for {query}")
+	response = "It's sunny"
+	return f"The information for {query} is {response}"
+
+
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+tools = [search]
+agent = create_agent(model=llm, tools=tools)
+
+def main():
+	print("Hello from langchain-course!")
+	result = agent.invoke({"messages": [HumanMessage(content="What is gurgaon sector 46 AQI today?")]})
+	for msg in result['messages']:
+		print(msg)
+		
+if __name__ == "__main__":
+	main()
+```
 

@@ -222,7 +222,7 @@ Try 4: "Eclipse Reign: Dawn of Ethereal Realms"
 ```
 
 
----
+
 ##### Max Tokens Limits Response Length:
 - Set it to control costs and response size
 - Response may be cut off mid-sentence if too low

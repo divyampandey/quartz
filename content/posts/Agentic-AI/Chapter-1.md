@@ -101,7 +101,7 @@ Now, let's see how to:
 
 
 
-```
+```python
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv # Ensure you have the .env with OPENAI_API_KEY 
 from langchain.agents import create_agent
@@ -118,8 +118,7 @@ def search(query: str) -> str:
 	The information for the query
 	"""
 	print(f"Searching the web for {query}")
-	response = "It's sunny"
-	return f"The information for {query} is {response}"
+	return "Tokyo weather is sunny"
 
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
@@ -163,3 +162,66 @@ Typical loop:
   - Users can **open the links**, cross-check, and decide if they trust the source.
 
 > Grounded answer = “Here’s my summary, and here are the pages I used.”
+
+
+---
+
+## Practical: Turning a Real Search API into a Tool
+
+So far we used a fake tool that always returned `"Tokyo weather is sunny"`.  
+Now we plug in a **real search API (Tavily)**.
+
+### 1. Initialising the client
+
+- The Tavily client reads an API key from an environment variable (e.g. `TAVILY_API_KEY`).
+- We keep it in a `.env` file so it’s not hard-coded.
+
+
+```python
+from tavily import TavilyClient
+import os
+
+tavily = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
+
+```
+---
+### 2. Wrapping it as a tool function
+
+- Our tool takes a query: str and returns a text summary (or the raw JSON).
+
+```python
+@tool
+def search(query: str) -> str:
+	"""Tool that searches the web for information
+	Args:
+	query: The query to search the web for
+	Returns:
+	The information for the query
+	"""
+	response = tavily.search(query)
+	return response
+
+```
+
+- This function can now be registered as a tool in a ReAct agent.
+
+
+Before: static fake response
+After: live web search + real-time information
+
+
+```
+
+--- 
+
+#### 3. Using the official LangChain Tavily tool (best practice)
+
+- Instead of writing our own wrapper, we can use the official LangChain integration (which already defines a proper Tool class and parameters):
+```python
+from langchain_tavily import TavilySearch
+
+tavily_search = TavilySearch()
+tools = [tavily_search]
+
+agent = create_agent(llm, tools)
+```

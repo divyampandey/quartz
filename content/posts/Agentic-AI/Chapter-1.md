@@ -137,6 +137,7 @@ if __name__ == "__main__":
 
 ---
 
+
 ## Search Agents and Web Tools
 
 A **search agent** is just an agent that has a **web search tool** attached.
@@ -166,7 +167,8 @@ Typical loop:
 
 ---
 
-## Practical: Turning a Real Search API into a Tool
+
+# Practical: Turning a Real Search API into a Tool
 
 So far we used a fake tool that always returned `"Tokyo weather is sunny"`.  
 Now we plug in a **real search API (Tavily)**.
@@ -206,10 +208,9 @@ def search(query: str) -> str:
 - This function can now be registered as a tool in a ReAct agent.
 
 
+```text
 Before: static fake response
-After: live web search + real-time information
-
-
+After: live web search + real-time information 
 ```
 
 --- 
@@ -225,3 +226,62 @@ tools = [tavily_search]
 
 agent = create_agent(llm, tools)
 ```
+
+
+---
+---
+# Structured Output with Pydantic
+
+LLMs normally return **plain text**.  
+For real apps we usually need **structured data**:
+
+- JSON for APIs / DB
+- Strongly-typed objects for backend logic
+- Clear fields so the UI can render answers + sources
+
+
+LangChain’s `create_agent` supports this via a `response_format` argument.
+
+### 1. Define Pydantic models
+
+We want the agent to return:
+
+- `answer`: the final text answer
+- `sources`: list of URLs it used (for grounding / trust)
+
+```python
+from typing import List
+from pydantic import BaseModel, Field
+
+class Source(BaseModel):
+    """Schema for a source used by the agent."""
+    url: str = Field(description="The URL of the source")
+
+class AgentResponse(BaseModel):
+    """Schema for the agent response."""
+    answer: str = Field(description="The agent's answer to the query")
+    sources: List[Source] = Field(
+        default_factory=list,
+        description="List of sources used to generate the answer",
+    )
+
+```
+
+Notes:
+
+- `BaseModel` gives us parsing, validation, and `.model_dump()` / `.json()`.
+- `Field(description=...)` helps the LLM understand what to put in each field.
+---
+### 2. Tell the agent to use this schema
+
+```python
+from langchain.agents import create_agent  
+agent = create_agent(llm=llm,tools=tools,response_format=AgentResponse)
+```
+
+Now, when you call the agent:
+```python
+result = agent.invoke({"input": "Find 3 AI engineer roles in the Bay Area"})
+structured: AgentResponse = result["structured_response"]
+```
+

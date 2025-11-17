@@ -1,10 +1,5 @@
----
-title: Chapter-0
-description: Chapter-0
-tags:
-  - notes
-draft: false
----
+
+
 ## What is an LLM?
  Large Language Model - which is trained on massive amounts of data. It could understand and generate text like human-like text. Can follow task like translation, summarization, code-generation etc.
 

@@ -275,12 +275,8 @@ def main():
 	"""
 	
 	prompt = ChatPromptTemplate.from_template(prompt_template) 
-	
 	llm = ChatOpenAI(model="gpt-4o", temperature=0.7)
-	
 	chain = prompt | llm 
-	
 	response = chain.invoke({"information": INFO})
-	
 	print(response.content)
 ```

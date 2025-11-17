@@ -1,11 +1,11 @@
 
----
+
+
+
 ## How to create an agent using LangChain
 
 LangChain provides a `create_agent` function in `langchain.agents`.
 Before we touch code, we need to understand **what an AI agent is** and **how ReAct agents work**.
-
----
 
 ## 🧠 Quick Snapshot (Revision)
 

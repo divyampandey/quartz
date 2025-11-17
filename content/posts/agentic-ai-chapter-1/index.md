@@ -63,7 +63,7 @@ Because tools can do almost anything, **agents can, in theory, do almost anythin
 
 ## 4. What is a ReAct Agent?
 ![ReAct Agent Loop](https://divyampandey.github.io/quartz/assets/ReAct_agent_arch.png)
-**ReAct = Reasoning + Acting** (from a key paper on agents).
+**ReAct = Reasoning + Acting**.
 
 The loop:
 

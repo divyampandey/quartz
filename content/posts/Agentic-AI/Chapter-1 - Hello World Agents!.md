@@ -285,3 +285,5 @@ result = agent.invoke({"input": "Find 3 AI engineer roles in the Bay Area"})
 structured: AgentResponse = result["structured_response"]
 ```
 
+
+

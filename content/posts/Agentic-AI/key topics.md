@@ -1,12 +1,5 @@
----
-title: agentic-ai-key-topics
-description: agentic-ai-key-topics
-tags:
-  - notes
-draft: false
----
-## Langchain & Langgraph
-#### Topics you should cover and revise regularly:
+
+#### Topics you should cover:
 
 1. **Basics of Chains:**
    - Understand what a chain is and how it processes data.

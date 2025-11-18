@@ -1,5 +1,5 @@
 
-#### Topics you should cover:
+#### Topics you should gothrough:
 
 1. **Basics of Chains:**
    - Understand what a chain is and how it processes data.

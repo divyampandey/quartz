@@ -276,5 +276,5 @@ if __name__ == "__main__":
 
 In subsequent post, we will see how to get the structured output using the function call - `with_structured_output`. Here is the quick comparison sheet between pydantic parsing vs the with_structured_output option.
 
-![Output ](https://divyampandey.github.io/quartz/assets/pydantic_vs_with_structured.png)
+![Output ](https://divyampandey.github.io/quartz/assets/pydantic_vs_with_structured_output.png)
 

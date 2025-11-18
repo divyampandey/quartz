@@ -123,4 +123,4 @@ the recommended approach is:
 
 ## Evolution of ReAct Agents
 
-![](../../assets/evolution_of_react_agent.png)
+![](https://divyampandey.github.io/quartz/assets/evolution_of_react_agent.png)

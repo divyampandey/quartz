@@ -191,12 +191,37 @@ if __name__ == "__main__":
 ```
 
 Output:
-```json
-response='\n\n### Weather Overview\n- **Location:** Gurgaon Sector 46\n- **Temperature:** 67°F (19°C)\n- **Condition:** Hazy clouds\n\n### Additional Weather Details\n- **Humidity:** Approximately 70%\n- **Wind Speed:** 5 mph (8 km/h)\n- **Visibility:** Reduced due to haze\n- **Feels Like:** 66°F (18°C)\n\n### Tips for the Day\n- **Clothing:** Light layers are recommended due to mild temperatures.\n- **Outdoor Activities:** Limited visibility might affect outdoor plans; proceed with caution.\n- **Health Advisory:** Individuals with respiratory issues should consider staying indoors due to haze.\n\n### Forecast\n- **Morning:** Cool and hazy\n- **Afternoon:** Slightly warmer with continued haze\n- **Evening:** Temperatures dropping, haze persisting\n\n### Sources\n- Local weather stations\n- Online weather services' sources=[Source(url='https://www.weather.com'), Source(url='https://www.accuweather.com')]
+
+```text
+response=
+### Weather Overview
+- **Location:** Gurgaon Sector 46
+- **Temperature:** 67°F (19°C)
+- **Condition:** Hazy clouds
+
+### Additional Weather Details
+- **Humidity:** Approximately 70%
+- **Wind Speed:** 5 mph (8 km/h)
+- **Visibility:** Reduced due to haze
+- **Feels Like:** 66°F (18°C)
+
+### Tips for the Day
+- **Clothing:** Light layers are recommended due to mild temperatures.
+- **Outdoor Activities:** Limited visibility might affect outdoor plans; proceed with caution.
+- **Health Advisory:** Individuals with respiratory issues should consider staying indoors due to haze.
+
+### Forecast
+- **Morning:** Cool and hazy
+- **Afternoon:** Slightly warmer with continued haze
+- **Evening:** Temperatures dropping, haze persisting
+
+### Sources
+- Local weather stations
+- Online weather services
+
+sources=[Source(url='https://www.weather.com'), Source(url='https://www.accuweather.com')]
+
 ```
-
-
-
 
 ## Evolution of ReAct Agents
 

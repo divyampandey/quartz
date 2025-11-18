@@ -4,7 +4,7 @@
 
 ## Classic ReAct Agent Recipe (pre-v1 LangChain)
 
-In older LangChain code, ReAct agents were wired in three steps:
+In older LangChain versions `< 1.0`, ReAct agents were wired in three steps:
 
 1. **Get the ReAct prompt from the Hub**
 2. **Build a “reasoning chain” with `create_react_agent`**

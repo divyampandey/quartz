@@ -279,6 +279,3 @@ In subsequent post, we will see how to get the structured output using the funct
 ![Output ](https://divyampandey.github.io/quartz/assets/pydantic_vs_with_structured_output.png)
 
 
-
-
-![](../../assets/evolution_react_agent.png)

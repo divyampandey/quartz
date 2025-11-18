@@ -1,5 +1,5 @@
 ---
-title: Divyam's Notes
+title: Getting Started...
 description: Welcome to my digital garden of technical notes and learning resources
 tags:
   - home
@@ -10,11 +10,11 @@ draft: false
 
 This is my digital space for documenting technical knowledge, insights, and learning experiences.
 
-## 📚 What You'll Find Here
+## 📚 What You'll Find Here 
 
 Explore my notes on:
 
-- **[[posts/Agentic-AI/key topics|Agentic AI]]** - AI agents, LangChain, LangGraph
+- **[Agentic-AI](posts/Agentic-AI/Table%20of%20Contents.md)**
 - **[[posts/Kubernetes/kubernetes-pods/index|Kubernetes]]** - Container orchestration, pods, and more
 
 ## 🧭 Getting Started

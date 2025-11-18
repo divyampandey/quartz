@@ -276,3 +276,6 @@ def main():
 	response = chain.invoke({"information": INFO})
 	print(response.content)
 ```
+
+
+

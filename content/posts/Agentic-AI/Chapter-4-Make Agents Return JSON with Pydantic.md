@@ -1,6 +1,6 @@
 
 
----
+
 
 So far our agents mostly returned **plain text**.  
 Real apps usually need **structured data**: JSON objects we can validate, store, and render.

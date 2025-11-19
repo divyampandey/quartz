@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "divyampandey.github.io/quartz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian", "content/posts/Kubernetes"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",

@@ -14,7 +14,7 @@ This is my digital space for documenting technical knowledge, insights, and lear
 
 Explore my notes on:
 
-- **[Agentic-AI](posts/Agentic-AI/0-Table%20of%20Contents.md)**
+- **[Agentic-AI](posts/Agentic-AI/0-Table%20of%20contents.md)**
 - **[[posts/Kubernetes/kubernetes-pods/index|Kubernetes]]** - Container orchestration, pods, and more
 
 ## 🧭 Getting Started

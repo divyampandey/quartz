@@ -1,12 +1,12 @@
 ---
-title: posts
+title: Tech Notes
 description: Collection of technical notes and learning resources
 tags:
   - index
 draft: false
 ---
 
-Welcome to my technical notes! This is a collection of my learning journey covering various topics in technology.
+Welcome to my technical notes! This is a collection of my learning journey covering various topics.
 
 ## Topics Covered
 

@@ -1,5 +1,5 @@
 ---
-title: Getting Started...
+title: Getting Started
 description: Welcome to my digital garden of technical notes and learning resources
 tags:
   - home

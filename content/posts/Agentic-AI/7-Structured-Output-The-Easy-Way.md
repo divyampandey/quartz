@@ -121,7 +121,7 @@ the recommended approach is:
 
 ---
 ## Complete code example 
-Note: It's build up on previous post ([Chapter-4-Make Agents Return JSON with Pydantic](Chapter-4-Make%20Agents%20Return%20JSON%20with%20Pydantic.md)
+Note: It's build up on previous post ([6-Make Agents Return JSON with Pydantic](6-Make%20Agents%20Return%20JSON%20with%20Pydantic.md)
 
 ```python
 from dotenv import load_dotenv

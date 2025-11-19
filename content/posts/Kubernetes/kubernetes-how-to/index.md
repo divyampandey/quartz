@@ -15,7 +15,7 @@ draft: false
 
 ![Kube config directory](https://divyampandey.github.io/quartz/assets/kube-config.png)
 
-### What’s inside kubeconfig (in plain English)
+### What’s inside kubeconfig
 
 A kubeconfig is just YAML that tells `kubectl`:
 

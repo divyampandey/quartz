@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: README
 description: Welcome to my digital garden of technical notes and learning resources
 tags:
   - home

@@ -97,6 +97,26 @@ So:
 > **AgentExecutor** = actually **does it** in a loop.
 
 
+🧠 **Mental model: What does AgentExecutor really do?**
+> **AgentExecutor is just a fancy while-loop.**
+
+In simple terms:
+
+1. Take the **user query**.
+2. Build the **prompt** (query + tool descriptions + history).
+3. Call the **LLM**.
+4. Look at the LLM’s reply:
+    - If it says “use tool X with these arguments”:
+        - Parse the tool name + arguments from the text.
+        - Run the **Python function / tool**.
+        - Add the tool result back into the “scratchpad” (history).
+        - Go back to step 3 (next LLM call).
+    - If it says “here is the final answer”:
+        - **Stop** and return this to the user.    
+5. Also stop if you hit a **max number of steps**.
+
+That’s it.  
+“AgentExecutor” = “**keep asking the LLM what to do next until it’s done**”.
 
 ---
 

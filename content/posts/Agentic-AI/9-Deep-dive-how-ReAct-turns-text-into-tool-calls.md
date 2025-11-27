@@ -4,15 +4,18 @@ Up to now, we’ve treated ReAct agents as a black box.
 
 ## Goal of this chapter
 
-In this chapter I want to understand **how the classic ReAct prompt is built by hand**:
+ In this chapter I want to see **exactly what happens inside one ReAct step**:
 
-- define a simple tool (`get_text_length`)
-- create a **ReAct prompt template** with `{tools}`, `{tool_names}`, `{input}`
-- use `PromptTemplate.partial` + `render_text_description`
-- connect everything with LCEL:  
-  `{"input": lambda x: x["input"]} | prompt | llm`
+- Define a simple tool (`get_text_length`)
+- Build the **ReAct prompt** with `{tools}`, `{tool_names}`, `{input}`
+- Use `PromptTemplate.partial` + `render_text_description`
+- Make the LLM stop at `Observation:` using `stop=["\nObservation:"]`
+- Parse the LLM output with `ReActSingleInputOutputParser` → `AgentAction` or `AgentFinish`
+- Run the tool if needed
+- Understand how **agent scratchpad / intermediate_steps** would let us do multiple ReAct iterations
 
-This is a **single ReAct step**, not a full agent loop. But it makes the ReAct pattern very concrete.
+
+This is very basic example, but it shows all the moving parts.
 
 ---
 
@@ -26,8 +29,10 @@ load_dotenv()
 
 @tool
 def get_text_length(text: str) -> int:
-    """Function to get the length of the text."""
+    """Function to get the length of the text"""
+    text = text.strip().strip('"\n').strip("'")
     return len(text)
+
 
 tools = [get_text_length]
 
@@ -163,9 +168,66 @@ Why `stop=["\nObservation:"]`?
 	  Action Input: "hello"
       Observation:
 ```
+Then it stops.  
+Later, in a full agent loop, we will fill in `Observation: <real result>` ourselves.
 
-Then it stops, and we can plug in the **real tool result** for `Observation:` in a full agent loop.
 
+
+## 5. Step 5 – Add the ReAct output parser
+
+Right now, if we just do:
+```python
+chain = {"input": lambda x: x["input"]} | prompt | llm
+result = chain.invoke({"input": "What is the length of 'hello'?"})
+print(result)
+```
+`result` is just **text**
+
+But we want something structured like:
+
+- `tool` → `"get_text_length"`
+- `tool_input` → `"hello"`
+
+
+For that, we use the ReAct output parser from `langchain_classic`:
+```python
+from langchain_classic.agents.output_parsers import ReActSingleInputOutputParser
+from langchain_classic.agents.output_parsers.react_single_input import (
+    AgentAction,
+    AgentFinish,
+)
+
+parser = ReActSingleInputOutputParser()
+
+```
+Now we extend the chain:
+
+```python
+chain = {"input": lambda x: x["input"]} | prompt | llm | parser
+
+```
+When we call:
+```python
+result = chain.invoke({"input": "What is the length of the string 'hello' ? "})
+
+```
+`result` will be either:
+- `AgentAction` – meaning:
+    > “You should call this tool with these inputs.”
+- `AgentFinish` – meaning:
+    > “I already know the final answer, here it is.”
+
+So:
+- `stop` ensures the output has the expected **shape**.
+- `ReActSingleInputOutputParser` reads that shape and produces a nice Python object.
+
+
+## 6. Step 6 – Running the tool once (single ReAct step)
+
+Now let’s plug it all together into one simple script that:
+
+- runs **one ReAct step**,
+- either calls the tool or just prints the final answer.
 
 ## 5. Step 5 – Connect everything with LCEL
 
@@ -219,3 +281,96 @@ In the full agent implementation, the next step would be:
 - parse `Action` and `Action Input`,
 - run the tool in Python,
 - feed `Observation: <tool_result>` back into another LLM call
+
+
+In this below code snippet, i have also added 
+```python
+from dotenv import load_dotenv
+from langchain.agents import create_agent
+from langchain.tools import tool
+# import ReActSingleInputOutputParser
+from langchain_classic.agents.output_parsers import \
+    ReActSingleInputOutputParser
+from langchain_classic.agents.output_parsers.react_single_input import (
+    AgentAction, AgentFinish)
+from langchain_core.messages import HumanMessage
+from langchain_core.prompts import PromptTemplate
+from langchain_core.tools import render_text_description
+from langchain_openai import ChatOpenAI
+from langchain_tavily import TavilySearch
+
+from schema import AgentResponse
+
+load_dotenv()
+
+parser = ReActSingleInputOutputParser()
+
+
+@tool
+def get_text_length(text: str) -> int:
+    """Function to get the length of the text"""
+    text = text.strip().strip('"\n').strip("'")
+    return len(text)
+
+
+tools = [get_text_length]
+
+
+def find_tool_with_name(tool_name: str) -> tool:
+    for tool in tools:
+        if tool.name == tool_name:
+            return tool
+
+    raise Exception(f"Tool {tool_name} not found")
+
+
+
+template = """
+````Answer the following questions as best you can. You have access to the following tools:
+
+    {tools}
+
+    Use the following format:
+
+    Question: the input question you must answer
+    Thought: you should always think about what to do
+    Action: the action to take, should be one of [{tool_names}]
+    Action Input: the input to the action
+    Observation: the result of the action
+    ... (this Thought/Action/Action Input/Observation can repeat N times)
+    Thought: I now know the final answer
+    Final Answer: the final answer to the original input question
+
+    Begin!
+
+    Question: {input}
+    Thought:
+
+"""
+
+
+prompt = PromptTemplate(
+    template=template, input_variables=["input", "tools", "tool_names"]
+).partial(
+    tools=render_text_description(tools), tool_names=", ".join([t.name for t in tools])
+)
+
+llm = ChatOpenAI(model="gpt-4o", temperature=0, stop=["\nObservation:"])
+
+
+chain = {"input": lambda x: x["input"]} | prompt | llm | parser
+
+result = chain.invoke({"input": "What is the length of the string 'hello' ? "})
+
+if isinstance(result, AgentAction):
+    tool_name = result.tool
+    tool_input = result.tool_input
+    tool = find_tool_with_name(tool_name)
+    observation = tool.func(str(tool_input))
+    print(observation)
+
+
+elif isinstance(result, AgentFinish):
+    print(result.return_values)
+```
+

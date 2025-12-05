@@ -1,6 +1,6 @@
 
 
-1. [1-Key topics](1-Key%20topics.md) 
+1. [1-Key topics](https://divyampandey.github.io/quartz/posts/Agentic-AI/1-key-topics) 
 2. [2-Hello world LLMs!](2-Hello%20world%20LLMs!.md)
 3. [3-Hello world agents!](3-Hello%20world%20agents!.md)
 4. [4-How agents call functions](4-How%20agents%20call%20functions.md)

@@ -1,12 +1,12 @@
 ---
 title: "Deep Dive: How ReAct Turns Text into Tool Calls"
-description: "Understanding the inner workings of ReAct agents"
+description: Understanding the inner workings of ReAct agents
 tags:
   - agentic-ai
   - agents
   - react
   - deep-dive
-date: 2024-11-17
+date: 2024-12-11
 draft: false
 ---
 

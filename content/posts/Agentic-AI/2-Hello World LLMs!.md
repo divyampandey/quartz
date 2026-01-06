@@ -1,4 +1,14 @@
-
+---
+title: "Hello World LLMs!"
+description: "Introduction to Large Language Models and getting started with LangChain"
+tags:
+  - agentic-ai
+  - llm
+  - langchain
+  - tutorial
+date: 2024-11-17
+draft: false
+---
 
 ![](https://divyampandey.github.io/quartz/assets/LLM-diagram.png)
 ## What is an LLM?

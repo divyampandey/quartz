@@ -1,4 +1,14 @@
-
+---
+title: "Modern LangChain Agents with 'create_agent'"
+description: "Building modern agents using LangChain's create_agent function"
+tags:
+  - agentic-ai
+  - agents
+  - langchain
+  - tutorial
+date: 2024-11-17
+draft: false
+---
 
 So far:
 

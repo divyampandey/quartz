@@ -1,12 +1,12 @@
 ---
-title:
+title: "Function Calling vs ReAct Agents: Who Picks the Tool?"
+description: Comparing function calling and ReAct approaches to tool selection
 tags:
   - agentic-ai
   - llm
-  - langchain
+  - agents
   - react
-  - tool-calling
-  - function-calling
+date: 2025-01-05
 draft: false
 ---
 

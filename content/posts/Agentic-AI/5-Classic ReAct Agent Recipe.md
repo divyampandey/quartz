@@ -1,6 +1,14 @@
-
-
-
+---
+title: "Classic ReAct Agent Recipe"
+description: "Pre-v1 LangChain approach to building ReAct agents"
+tags:
+  - agentic-ai
+  - agents
+  - react
+  - langchain
+date: 2024-11-17
+draft: false
+---
 
 ## Classic ReAct Agent Recipe (pre-v1 LangChain)
 

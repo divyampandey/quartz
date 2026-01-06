@@ -1,6 +1,16 @@
+---
+title: "Deep Dive: How ReAct Turns Text into Tool Calls"
+description: "Understanding the inner workings of ReAct agents"
+tags:
+  - agentic-ai
+  - agents
+  - react
+  - deep-dive
+date: 2024-11-17
+draft: false
+---
 
-
-Up to now, we’ve treated ReAct agents as a black box.
+Up to now, we've treated ReAct agents as a black box.
 
 ## Goal of this chapter
 

@@ -1,4 +1,13 @@
-
+---
+title: "Structured Output the Easy Way"
+description: "Simplifying structured data extraction from LLMs"
+tags:
+  - agentic-ai
+  - structured-output
+  - langchain
+date: 2024-11-17
+draft: false
+---
 
 Real apps rarely want **free-form text**.  
 They usually want **structured data**: JSON you can save, validate, and show in a UI.

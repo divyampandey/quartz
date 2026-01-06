@@ -1,4 +1,13 @@
-
+---
+title: "Key Topics in Agentic AI"
+description: "Essential topics for mastering LangChain and LangGraph"
+tags:
+  - agentic-ai
+  - langchain
+  - langgraph
+date: 2024-11-17
+draft: false
+---
 
 #### Topics you should gothrough:
 

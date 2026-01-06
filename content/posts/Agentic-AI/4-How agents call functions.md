@@ -1,5 +1,14 @@
-
-
+---
+title: "How Agents Call Functions"
+description: "Understanding tools and how LLMs interact with the outside world"
+tags:
+  - agentic-ai
+  - agents
+  - tools
+  - langchain
+date: 2024-11-17
+draft: false
+---
 
 ## Tools – How LLMs Talk to the Outside World
 

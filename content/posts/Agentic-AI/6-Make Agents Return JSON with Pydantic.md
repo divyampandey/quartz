@@ -1,6 +1,14 @@
-
-
-
+---
+title: "Make Agents Return JSON with Pydantic"
+description: "Getting structured data from agents using Pydantic models"
+tags:
+  - agentic-ai
+  - agents
+  - pydantic
+  - structured-output
+date: 2024-11-17
+draft: false
+---
 
 So far our agents mostly returned **plain text**.  
 Real apps usually need **structured data**: JSON objects we can validate, store, and render.

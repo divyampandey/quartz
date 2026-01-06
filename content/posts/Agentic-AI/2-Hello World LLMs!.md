@@ -1,6 +1,6 @@
 ---
-title: "Hello World LLMs!"
-description: "Introduction to Large Language Models and getting started with LangChain"
+title: 2-Hello world LLMs!
+description: Introduction to Large Language Models and getting started with LangChain
 tags:
   - agentic-ai
   - llm

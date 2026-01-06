@@ -1,6 +1,6 @@
 ---
-title: "Structured Output the Easy Way"
-description: "Simplifying structured data extraction from LLMs"
+title: 7-Structured output the easy way
+description: Simplifying structured data extraction from LLMs
 tags:
   - agentic-ai
   - structured-output

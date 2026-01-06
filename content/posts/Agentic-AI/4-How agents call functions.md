@@ -1,6 +1,6 @@
 ---
-title: "How Agents Call Functions"
-description: "Understanding tools and how LLMs interact with the outside world"
+title: 4-How agents call functions
+description: Understanding tools and how LLMs interact with the outside world
 tags:
   - agentic-ai
   - agents

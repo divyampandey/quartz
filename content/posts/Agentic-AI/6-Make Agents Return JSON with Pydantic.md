@@ -1,6 +1,6 @@
 ---
-title: "Make Agents Return JSON with Pydantic"
-description: "Getting structured data from agents using Pydantic models"
+title: 6-Make agents return JSON with Pydantic
+description: Getting structured data from agents using Pydantic models
 tags:
   - agentic-ai
   - agents

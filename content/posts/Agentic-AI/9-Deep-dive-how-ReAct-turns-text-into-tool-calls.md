@@ -1,5 +1,5 @@
 ---
-title: "Deep Dive: How ReAct Turns Text into Tool Calls"
+title: 9-Deep-dive-how-ReAct-turns-text-into-tool-calls
 description: Understanding the inner workings of ReAct agents
 tags:
   - agentic-ai

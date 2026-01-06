@@ -1,6 +1,6 @@
 ---
-title: "Table of Contents"
-description: "Complete guide to Agentic AI topics"
+title: 0-Table of contents
+description: Complete guide to Agentic AI topics
 tags:
   - agentic-ai
   - index

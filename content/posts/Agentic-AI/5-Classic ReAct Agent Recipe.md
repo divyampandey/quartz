@@ -1,6 +1,6 @@
 ---
-title: "Classic ReAct Agent Recipe"
-description: "Pre-v1 LangChain approach to building ReAct agents"
+title: 5-Classic ReAct agent recipe
+description: Pre-v1 LangChain approach to building ReAct agents
 tags:
   - agentic-ai
   - agents

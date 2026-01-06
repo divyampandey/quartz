@@ -1,6 +1,6 @@
 ---
-title: "Modern LangChain Agents with 'create_agent'"
-description: "Building modern agents using LangChain's create_agent function"
+title: 8-Modern LangChain agents with 'create_agent'
+description: Building modern agents using LangChain's create_agent function
 tags:
   - agentic-ai
   - agents

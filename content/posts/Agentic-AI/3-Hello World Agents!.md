@@ -1,6 +1,6 @@
 ---
-title: "Hello World Agents!"
-description: "Creating your first AI agent with LangChain and understanding ReAct agents"
+title: 3-Hello world agents!
+description: Creating your first AI agent with LangChain and understanding ReAct agents
 tags:
   - agentic-ai
   - agents

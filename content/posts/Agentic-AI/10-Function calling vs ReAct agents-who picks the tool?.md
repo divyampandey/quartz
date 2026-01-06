@@ -1,5 +1,5 @@
 ---
-title: "Function Calling vs ReAct Agents: Who Picks the Tool?"
+title: 10-Function calling vs ReAct agents-who picks the tool?
 description: Comparing function calling and ReAct approaches to tool selection
 tags:
   - agentic-ai

@@ -1,6 +1,6 @@
 ---
-title: "Key Topics in Agentic AI"
-description: "Essential topics for mastering LangChain and LangGraph"
+title: 1-Key topics
+description: Essential topics for mastering LangChain and LangGraph
 tags:
   - agentic-ai
   - langchain
